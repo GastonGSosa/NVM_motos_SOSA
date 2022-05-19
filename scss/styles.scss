@@ -264,23 +264,66 @@ html, body{
         border-left: solid;
         border-color:map-get($colorpalette,"colorTerciario");
         padding: 2%;
-        
     }
     .box2{
-
         border-right: solid;
         border-color:map-get($colorpalette,"colorTerciario");
         background-color: map-get($colorpalette,"colorPrincipal");
         padding:2%;
-        
         img {
             max-width: 100%;
             border: solid;
             border-radius: 5px;
             border-color: map-get($colorpalette, "colorTerciario");
+            filter: grayscale(100%);
+            opacity: 50%;
         }
-
-
     }
-
 }
+
+/* ------------------------SECCION BLOG-------------------------------- */
+
+.vlogs {
+    width:70vw;
+    height: auto;
+    background-image: url("../images/seamless_road.jpg");
+    background-repeat: repeat-y;
+    background-size: cover;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    gap: 2%;
+    h2 {
+        text-align: center;
+        font-size: 3rem;
+    }
+}
+
+.video {
+    padding: 2% 12%;
+    border:solid;
+    border-color: #FFD369;
+    border-radius: 15px;
+    background-color: map-get($colorpalette,"colorPrincipal");
+    opacity: 90%;
+    width:100%;
+    height: 40%;
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items:center;
+    gap: 2%;
+    overflow: hidden;
+    iframe {
+        border: solid 5px;
+        border-style: double dashed;
+        border-color: map-get($colorpalette,"colorTerciario");
+        border-radius: 15px;
+    }
+}
+
+.videoRight {
+    @extend .video;
+    flex-direction:row-reverse;
+}
+

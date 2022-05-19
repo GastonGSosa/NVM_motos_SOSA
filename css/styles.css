@@ -246,6 +246,52 @@ html main, body main {
   border: solid;
   border-radius: 5px;
   border-color: #FFD369;
+  filter: grayscale(100%);
+  opacity: 50%;
+}
+
+/* ------------------------SECCION BLOG-------------------------------- */
+.vlogs {
+  width: 70vw;
+  height: auto;
+  background-image: url("../images/seamless_road.jpg");
+  background-repeat: repeat-y;
+  background-size: cover;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  gap: 2%;
+}
+.vlogs h2 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.video, .videoRight {
+  padding: 2% 12%;
+  border: solid;
+  border-color: #FFD369;
+  border-radius: 15px;
+  background-color: #222831;
+  opacity: 90%;
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2%;
+  overflow: hidden;
+}
+.video iframe, .videoRight iframe {
+  border: solid 5px;
+  border-style: double dashed;
+  border-color: #FFD369;
+  border-radius: 15px;
+}
+
+.videoRight {
+  flex-direction: row-reverse;
 }
 
 /*# sourceMappingURL=styles.css.map */
