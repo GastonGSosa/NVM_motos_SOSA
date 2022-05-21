@@ -1169,7 +1169,7 @@ a {
     width: 80%;
     height: auto;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column-reverse nowrap;
     justify-content: space-between;
     align-items: center;
     gap: 2%;
@@ -1292,6 +1292,7 @@ a {
     justify-content: center;
     align-items: space-between;
     gap: 5%;
+    text-align: center;
   }
   .videoRight iframe {
     border: solid 5px;
