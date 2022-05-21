@@ -1,4 +1,3 @@
-
 /* VARIABLES, MIXINS, MAPS */
 
 
@@ -10,7 +9,6 @@ $colorpalette: ("colorPrincipal": #222831, "colorSecundario": #393E46, "colorTer
     height: $h;
 }
 
-
 /* GLOBAL SELECTORS */
 
 *{
@@ -18,7 +16,451 @@ $colorpalette: ("colorPrincipal": #222831, "colorSecundario": #393E46, "colorTer
     font-family: 'Oxygen', sans-serif;
 }
 
+/* ***********************DESKTOP****************************** */
 
+@media (min-width: 1024px ){
+
+
+
+    /* TAG SELECTORS */
+
+
+    html, body{
+        /* background-image: url("/images/fondo.png"); */
+        display:flex;
+        flex-flow:column nowrap;
+        margin: 0;
+        padding: 0;
+        max-width:100vw;
+        overflow-y:auto;
+        overflow-x:hidden;
+        scroll-behavior:smooth;
+        main {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height:auto;
+            min-height:80vh;
+            background-image: url("../images/seamless_grass.jpg");
+            background-size: contain;
+            h2 {
+                color: map-get($colorpalette,"colorTerciario");
+                font-size: 2.5vw;
+            }
+            
+            
+        }
+    }
+
+    /* --------------ESTRUCTURA DE LA PÁGINA ------------------------------- */
+
+    .header {
+        @include sizes (map-get($colorpalette,"colorSecundario"),100vw,10vh);
+        padding-left: 10px;
+        display:flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2%;
+        position: relative;
+        top:0;
+    }
+    .headLeft {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 2vw;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            font-size: 4vw;
+        }
+    }
+
+    .headRight {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 2vw;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            font-size: 4vw;
+        }
+        a {
+            img {
+                width: 3vh;
+            }
+        }
+    }
+
+
+
+    .nav {
+        display: flex;
+        flex-flow: row nowrap;
+        @include sizes (map-get($colorpalette,"colorSecundario"),100vw,5vh);
+        gap: 10px;
+        border-bottom:solid;
+        border-color: map-get($colorpalette,"colorTerciario");
+        position: relative;
+
+    }
+
+    .footer {
+        @include sizes(map-get($colorpalette,"colorSecundario"),100vw,5vh);
+        border-top: solid;
+        border-color: map-get($colorpalette,"colorTerciario");
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        position: relative;
+        bottom:0;
+
+        .footerMenu {
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 5px;
+            font-size: 0.75rem;
+            max-width:100%;
+        }
+
+    }
+
+    /* ------------------------------INDEX------------------------------ */
+
+
+    .ppal {
+        @include sizes (map-get($colorpalette, "colorPrincipal"),70vw,auto);
+        background-image: url("../images/seamless_road.jpg");
+        background-repeat: repeat-y;
+        background-size: cover;
+        display: flex;
+        flex-flow:column nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3% 10%;
+        gap: 5%;    
+        h2 {
+            display:block;
+            color: map-get($colorpalette,"colorTerciario");
+            font-size: 2.5vw;
+            font-style: bold;
+        }
+        img{
+            position: relative;
+            top: 4vh;
+        }
+        
+    }
+
+    .scdario {
+        @include sizes (map-get($colorpalette, "colorPrincipal"),70vw,auto);
+        background-image: url("../images/seamless_road.jpg");
+        background-repeat: repeat-y;
+        background-size: cover;
+        padding: 3% 10%;
+        display: flex;
+        flex-direction:column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+
+        .p {
+            font-size: 1em;
+        }
+    }
+
+
+    .aranceles {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 2vw;
+        padding-top: 2vh;
+    }
+
+    .motoIntro {
+        border: solid;
+        border-radius: 15px;
+        border-color: #FFD369;
+        max-width: 61%;
+    }
+
+    /* -------------------------SECCION CLASES------------------------ */
+
+    .categorias {
+        @include sizes (map-get($colorpalette,"colorPrincipal"),70%,auto);
+        background-image: url("../images/seamless_road.jpg");
+        background-repeat: repeat-y;
+        background-size: cover;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        h2 {
+            display:block;
+            color: map-get($colorpalette,"colorTerciario");
+            font-size: 2.5vw;
+            font-style: bold;;
+            padding: 2%;
+        }
+        .catDescri {
+            font-size: 1.3rem;
+            text-align: center;
+            padding: 2% 10%;
+        }
+
+    }
+    .colorCard {
+        background-color: map-get($colorpalette,"colorPrincipal");
+        color: map-get($colorpalette,"colorTexto");
+        
+    }
+
+
+    .colorCard:hover {
+        transform: scale(120%);
+        transition-duration: 0.2s;
+    }
+
+    .modalidad {
+        @include sizes (map-get($colorpalette,colorPrincipal),70%,auto);
+        background-image: url("../images/seamless_road.jpg");
+        background-repeat: repeat-y;
+        background-size: cover;
+        display: flex;
+        gap: 2vh;
+        flex-flow:column nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        h3{
+            display: inline-block;
+            font-size: 2.5em;
+        }
+    }
+
+    .lugar {
+        @include sizes (map-get($colorpalette,colorPrincipal),70%,auto);
+        background-image: url("../images/seamless_road.jpg");
+        background-repeat: repeat-y;
+        background-size: cover;
+        display: flex;
+        flex-flow:column nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        h3{
+            display: inline-block;
+            font-size: 2.5em;
+        }
+    }
+
+    .mod1{
+        padding: 2% 7%;
+        border:solid;
+        border-color: #FFD369;
+        border-radius: 15px;
+        background-color: map-get($colorpalette,"colorPrincipal");
+        opacity: 90%;
+        width:80%;
+        height: auto;
+        display:flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items:center;
+        gap: 2%;
+        margin: 0.5%;
+        img {
+            border-radius:15px;
+        }
+
+    }
+    .mod1box2 {
+        margin-left: 4%;
+    }
+
+    .mod2{
+        padding: 2% 7%;
+        border:solid;
+        border-color: #FFD369;
+        border-radius: 15px;
+        background-color: map-get($colorpalette,"colorPrincipal");
+        opacity: 90%;
+        width:80%;
+        height: auto;
+        display:flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items:center;
+        gap: 2%;
+        margin: 0.5%;
+        img {
+            border-radius:15px;
+        }
+        text-align: right;
+    }
+    .mod2box2 {
+        margin-left: 4%;
+    }
+
+    .map {
+        background-color: map-get($colorpalette,"colorPrincipal");
+        border: solid;
+        border-color: map-get($colorpalette,"colorTerciario");
+        padding: 1%;
+        border-radius: 15px;
+        opacity:90%;
+        width:80%;
+        overflow:hidden;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items:center;
+        margin: 0.5%;
+        iframe {
+            border-radius:15px;
+            width:50%;
+        }
+        p{
+            width:50%;
+            padding:1%;
+        }
+        
+    }
+
+    /* -------------------------SECCION PROFESOR---------------------- */
+
+    .bio {
+        width:100vw;
+        background-image:url("../images/fondo.png");
+        background-size: cover;
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        .box1{
+            @include sizes(map-get($colorpalette,"colorPrincipal"),50%,auto);
+            border-left: solid;
+            border-color:map-get($colorpalette,"colorTerciario");
+            padding: 2% 10%;
+            text-align:center;
+            h2{
+                margin: 3%;
+            }
+        }
+        .box2{
+            border-right: solid;
+            border-color:map-get($colorpalette,"colorTerciario");
+            background-color: map-get($colorpalette,"colorPrincipal");
+            padding:2%;
+            img {
+                max-width: 100%;
+                border: solid;
+                border-radius: 5px;
+                border-color: map-get($colorpalette, "colorTerciario");
+                filter: grayscale(100%);
+                opacity: 50%;
+            }
+        }
+    }
+
+    /* ------------------------SECCION BLOG-------------------------------- */
+
+    .vlogs {
+        width:70vw;
+        height: auto;
+        background-image: url("../images/seamless_road.jpg");
+        background-repeat: repeat-y;
+        background-size: contain;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+        padding: 2%;
+        h2 {
+            display:block;
+            color: map-get($colorpalette,"colorTerciario");
+            font-size: 2.5vw;
+            font-style: bold;;
+            padding: 2%;
+            text-align: center;
+        }
+    }
+
+    .video {
+        padding: 2% 10%;
+        margin: 2%;
+        border:solid;
+        border-color: #FFD369;
+        border-radius: 15px;
+        background-color: map-get($colorpalette,"colorPrincipal");
+        opacity: 90%;
+        width: 85%;
+        text-align: left;
+        height: auto;
+        display:flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items:center;
+        gap: 5%;
+        iframe {
+            border: solid 5px;
+            border-style: double dashed;
+            border-color: map-get($colorpalette,"colorTerciario");
+            border-radius: 15px;
+        }
+        iframe:hover {
+            transform: scale(150%);
+            transition-duration: 0.2s;
+            
+        }
+        h4{
+            color: map-get($colorpalette,"colorTerciario");
+            font-size: 2rem;
+        }
+    }
+
+    .videoRight {
+        padding: 2% 10%;
+        margin: 2%;
+        border:solid;
+        border-color: #FFD369;
+        border-radius: 15px;
+        background-color: map-get($colorpalette,"colorPrincipal");
+        opacity: 90%;
+        width: 85%;
+        text-align: right;
+        height: auto;
+        display:flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items:center;
+        gap: 5%;
+        iframe {
+            border: solid 5px;
+            border-style: double dashed;
+            border-color: map-get($colorpalette,"colorTerciario");
+            border-radius: 15px;
+        }
+        iframe:hover {
+            transform: scale(150%);
+            transition-duration: 0.2s;
+            
+        }
+        h4{
+            color:map-get($colorpalette,"colorTerciario");
+            font-size: 2rem;
+        }
+        flex-direction:row-reverse;
+        text-align: right;
+    }
+}
+
+/* *********************************************************** */
+/* ***********************TABLET****************************** */
+/* *********************************************************** */
+
+@media (max-width: 1023px) and (min-width: 481px){
 
 /* TAG SELECTORS */
 
@@ -41,7 +483,7 @@ html, body{
         width: 100vw;
         height:auto;
         min-height:80vh;
-        background-image: url("../images/seamless_grass.jpg");
+        background-image: url("../images/seamless_road.jpg");
         background-size: contain;
         h2 {
             color: map-get($colorpalette,"colorTerciario");
@@ -77,7 +519,14 @@ html, body{
 }
 
 .headRight {
-    @extend .headLeft;
+    display: flex;
+        flex-flow: row nowrap;
+        gap: 2vw;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            font-size: 4vw;
+        }
     a {
         img {
             width: 3vh;
@@ -123,7 +572,7 @@ html, body{
 
 
 .ppal {
-    @include sizes (map-get($colorpalette, "colorPrincipal"),70vw,auto);
+    @include sizes (map-get($colorpalette, "colorPrincipal"),100vw,30%);
     background-image: url("../images/seamless_road.jpg");
     background-repeat: repeat-y;
     background-size: cover;
@@ -139,21 +588,15 @@ html, body{
         font-size: 2.5vw;
         font-style: bold;
     }
-    img{
-        position: relative;
-        top: 4vh;
-    }
     
 }
 
 .scdario {
-    @include sizes (map-get($colorpalette, "colorPrincipal"),70vw,auto);
-    background-image: url("../images/seamless_road.jpg");
-    background-repeat: repeat-y;
-    background-size: cover;
+    width: 100vw;
+    height: auto;
     padding: 3% 10%;
     display: flex;
-    flex-direction:column;
+    flex-flow:column wrap;
     justify-content: flex-start;
     align-items: center;
     text-align: center;
@@ -163,34 +606,33 @@ html, body{
     }
 }
 
-
-.aranceles {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 2vw;
-    padding-top: 2vh;
-}
-
 .motoIntro {
     border: solid;
     border-radius: 15px;
     border-color: #FFD369;
-    max-width: 61%;
+    max-width: 80vw;
 }
 
 /* -------------------------SECCION CLASES------------------------ */
 
+.aranceles {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2vw;
+    padding-top: 2vh;
+}
+
 .categorias {
-    @include sizes (map-get($colorpalette,"colorPrincipal"),70%,auto);
-    background-image: url("../images/seamless_road.jpg");
-    background-repeat: repeat-y;
-    background-size: cover;
+    width: 100vw;
+    height: auto;
+
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     h2 {
-        @extend h2;
+        color: map-get($colorpalette,"colorTerciario");
+        font-size: 2.5vw;
         padding: 2%;
     }
     .catDescri {
@@ -200,12 +642,21 @@ html, body{
     }
 
 }
+.colorCard {
+    background-color: map-get($colorpalette,"colorPrincipal");
+    color: map-get($colorpalette,"colorTexto");
+}
+
+.colorCard:hover {
+    transform: scale(120%);
+    transition-duration: 0.2s;
+}
 
 .modalidad {
-    @include sizes (map-get($colorpalette,colorPrincipal),70%,70vh);
+    @include sizes (map-get($colorpalette,colorPrincipal),100%,auto);
     background-image: url("../images/seamless_road.jpg");
     background-repeat: repeat-y;
-    background-size: cover;
+    background-size: contain;
     display: flex;
     flex-flow:column nowrap;
     justify-content: space-evenly;
@@ -217,23 +668,32 @@ html, body{
 }
 
 .lugar {
-    @extend .modalidad;
+    width: 100vw;
+    display: flex;
+    flex-flow:column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    h3{
+        display: inline-block;
+        font-size: 2.5em;
+    }
 }
 
 .mod1{
-    padding: 10% 7%;
+    padding: 2% 7%;
     border:solid;
     border-color: #FFD369;
     border-radius: 15px;
     background-color: map-get($colorpalette,"colorPrincipal");
     opacity: 90%;
-    width:95%;
-    height: 40%;
+    width:80%;
+    height: auto;
     display:flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: space-between;
     align-items:center;
     gap: 2%;
+    margin: 1%;
     img {
         border-radius:15px;
     }
@@ -241,7 +701,23 @@ html, body{
 }
 
 .mod2{
-    @extend .mod1;
+    padding: 2% 7%;
+    border:solid;
+    border-color: #FFD369;
+    border-radius: 15px;
+    background-color: map-get($colorpalette,"colorPrincipal");
+    opacity: 90%;
+    width:80%;
+    height: auto;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items:center;
+    gap: 2%;
+    margin: 1%;
+    img {
+        border-radius:15px;
+    }
     text-align: right;
 }
 
@@ -252,18 +728,19 @@ html, body{
     padding: 1%;
     border-radius: 15px;
     opacity:90%;
-    width:95%;
+    width:80%;
     overflow:hidden;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: space-between;
     align-items:center;
+    margin: 1%;
     iframe {
         border-radius:15px;
-        width:50%;
+        width:90%;
     }
     p{
-        width:50%;
+        width:90%;
         padding:1%;
     }
     
@@ -272,29 +749,25 @@ html, body{
 /* -------------------------SECCION PROFESOR---------------------- */
 
 .bio {
-    width:100vw;
-    background-image:url("../images/fondo.png");
-    background-size: cover;
+    width:100%;
+    height: auto;
     display:flex;
-    flex-direction:row;
+    flex-direction: column;
     justify-content:center;
+    border: solid;
+    border-color: map-get($colorpalette,"colorTerciario");
     .box1{
-        @include sizes(map-get($colorpalette,"colorPrincipal"),50%,auto);
-        border-left: solid;
-        border-color:map-get($colorpalette,"colorTerciario");
-        padding: 2% 10%;
+        @include sizes(map-get($colorpalette,"colorPrincipal"),auto,auto);
+        padding: 2% 5%;
         text-align:center;
-        h2{
-            margin: 3%;
-        }
     }
     .box2{
-        border-right: solid;
-        border-color:map-get($colorpalette,"colorTerciario");
         background-color: map-get($colorpalette,"colorPrincipal");
-        padding:2%;
         img {
-            max-width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
             border: solid;
             border-radius: 5px;
             border-color: map-get($colorpalette, "colorTerciario");
@@ -307,47 +780,41 @@ html, body{
 /* ------------------------SECCION BLOG-------------------------------- */
 
 .vlogs {
-    width:70vw;
+    width:100%;
     height: auto;
-    background-image: url("../images/seamless_road.jpg");
-    background-repeat: repeat-y;
-    background-size: contain;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     gap: 10%;
-    padding: 2%;
     h2 {
-        @extend h2;
+        color: map-get($colorpalette,"colorTerciario");
+        font-size: 2.5vw;
         text-align: center;
     }
 }
 
 .video {
-    padding: 2% 10%;
+    padding: 2% 5%;
     margin: 2%;
     border:solid;
     border-color: #FFD369;
     border-radius: 15px;
     background-color: map-get($colorpalette,"colorPrincipal");
     opacity: 90%;
-    width:100%;
+    width: 85%;
     height: auto;
     display:flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: space-between;
     align-items:center;
     gap: 5%;
+    text-align:center;
     iframe {
         border: solid 5px;
         border-style: double dashed;
         border-color: map-get($colorpalette,"colorTerciario");
         border-radius: 15px;
-    }
-    iframe:hover {
-        transform: scale(150%);
-        
     }
     h4{
         color: map-get($colorpalette,"colorTerciario");
@@ -356,8 +823,422 @@ html, body{
 }
 
 .videoRight {
-    @extend .video;
-    flex-direction:row-reverse;
-    text-align: right;
+    padding: 2% 5%;
+    margin: 2%;
+    border:solid;
+    border-color: #FFD369;
+    border-radius: 15px;
+    background-color: map-get($colorpalette,"colorPrincipal");
+    opacity: 90%;
+    width: 85%;
+    height: auto;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items:center;
+    gap: 5%;
+    text-align:center;
+    iframe {
+        border: solid 5px;
+        border-style: double dashed;
+        border-color: map-get($colorpalette,"colorTerciario");
+        border-radius: 15px;
+    }
+    h4{
+        color: map-get($colorpalette,"colorTerciario");
+        font-size: 2rem;
+    }
 }
 
+}
+
+/* ********************************************************** */
+/* *********************MOBILE******************************* */
+/* ********************************************************** */
+
+@media (max-width: 480px) {
+    /* TAG SELECTORS */
+
+
+    html, body{
+        /* background-image: url("/images/fondo.png"); */
+        display:flex;
+        flex-flow:column nowrap;
+        margin: 0;
+        padding: 0;
+        max-width:100vw;
+        overflow-y:auto;
+        overflow-x:hidden;
+        scroll-behavior:smooth;
+        main {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height:auto;
+            min-height:80vh;
+            background-image: url("../images/seamless_road.jpg");
+            background-size: contain;
+            h2 {
+                color: map-get($colorpalette,"colorTerciario");
+                font-size: 2.5vw;
+            }
+            
+            
+        }
+    }
+
+    /* --------------ESTRUCTURA DE LA PÁGINA ------------------------------- */
+
+    .header {
+        @include sizes (map-get($colorpalette,"colorSecundario"),100vw,10vh);
+        padding-left: 10px;
+        display:flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2%;
+        position: relative;
+        top:0;
+    }
+    .headLeft {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 2vw;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            font-size: 4vw;
+        }
+    }
+
+    .headRight {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 2vw;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            font-size: 4vw;
+        }
+        a {
+            img {
+                width: 3vh;
+            }
+        }
+    }
+
+
+
+    .nav {
+        display: flex;
+        flex-flow: row nowrap;
+        @include sizes (map-get($colorpalette,"colorSecundario"),100vw,5vh);
+        gap: 10px;
+        border-bottom:solid;
+        border-color: map-get($colorpalette,"colorTerciario");
+        position: relative;
+
+    }
+
+    .footer {
+        @include sizes(map-get($colorpalette,"colorSecundario"),100vw,5vh);
+        border-top: solid;
+        border-color: map-get($colorpalette,"colorTerciario");
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        position: relative;
+        bottom:0;
+
+        .footerMenu {
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 5px;
+            font-size: 0.75rem;
+            max-width:100%;
+        }
+
+    }
+
+    /* ------------------------------INDEX------------------------------ */
+
+
+    .ppal {
+        width: 100vw;
+        height: auto;
+        display: flex;
+        flex-flow:column nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 2%;
+        gap: 5%;    
+        h2 {
+            display:block;
+            color: map-get($colorpalette,"colorTerciario");
+            font-style: bold;
+            font-size: 1.5rem;
+            text-align:center;
+        }
+        
+    }
+
+    .scdario {
+        width:80vw;
+        padding: 2%;
+        display: flex;
+        flex-direction:column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+
+        .p {
+            font-size: 1em;
+        }
+    }
+
+
+    .motoIntro {
+        border: solid;
+        border-radius: 15px;
+        border-color: #FFD369;
+        max-width: 61%;
+    }
+
+    /* -------------------------SECCION CLASES------------------------ */
+
+    .categorias {
+        width:100vw;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        h2 {
+            color: map-get($colorpalette,"colorTerciario");
+            font-size: 1.5rem;
+            text-align:center;
+            padding: 5%;
+        }
+        .catDescri {
+            font-size: 1.3rem;
+            text-align: center;
+            padding: 2% 10%;
+        }
+
+    }
+
+    .aranceles {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2vw;
+        padding-top: 2vh;
+    }
+
+    .colorCard {
+        background-color: map-get($colorpalette,"colorPrincipal");
+        color: map-get($colorpalette,"colorTexto");
+    }
+
+    .colorCard:hover {
+        transform: scale(120%);
+        transition-duration: 0.2s;
+    }
+
+    .modalidad {
+        width: 100vw;
+        display: flex;
+        flex-flow:column nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        h2{
+            display: inline-block;
+            font-size: 1.5rem;
+        }
+    }
+
+    .lugar {
+        width:80vw;
+        display: flex;
+        flex-flow:column nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align:center;
+        h2{
+            display: inline-block;
+            font-size: 1.5rem;
+        }
+    }
+
+    .mod1{
+        padding: 2%;
+        border:solid;
+        border-color: #FFD369;
+        border-radius: 15px;
+        background-color: map-get($colorpalette,"colorPrincipal");
+        opacity: 90%;
+        width:80%;
+        margin: 1% 0%;
+        height: auto;
+        display:flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items:center;
+        gap: 2%;
+        img {
+            border-radius:15px;
+            max-width: 100%;
+        }
+
+    }
+
+    .mod2{
+        padding: 2%;
+        border:solid;
+        border-color: #FFD369;
+        border-radius: 15px;
+        background-color: map-get($colorpalette,"colorPrincipal");
+        opacity: 90%;
+        width:80%;
+        height: auto;
+        display:flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items:center;
+        gap: 2%;
+        img {
+            border-radius:15px;
+            max-width:100%;
+        }
+        text-align: center;
+    }
+
+    .map {
+        background-color: map-get($colorpalette,"colorPrincipal");
+        border: solid;
+        border-color: map-get($colorpalette,"colorTerciario");
+        padding: 1%;
+        border-radius: 15px;
+        opacity:90%;
+        overflow:hidden;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items:center;
+        iframe {
+            border-radius:15px;
+            max-width:100%;
+        }
+        p{
+            width:98%;
+            padding:1%;
+        }
+        
+    }
+
+    /* -------------------------SECCION PROFESOR---------------------- */
+
+    .bio {
+        width:100vw;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        .box1{
+            width:100vw;
+            border-color:map-get($colorpalette,"colorTerciario");
+            padding: 2% 10%;
+            text-align:center;
+            h2{
+                margin: 3%;
+                font-size: 1.5rem;
+            }
+        }
+        .box2{
+            background-color: map-get($colorpalette,"colorPrincipal");
+            padding:2%;
+            img {
+                max-width: 100%;
+                border: solid;
+                border-radius: 5px;
+                border-color: map-get($colorpalette, "colorTerciario");
+                filter: grayscale(100%);
+                opacity: 50%;
+            }
+        }
+    }
+
+    /* ------------------------SECCION BLOG-------------------------------- */
+
+    .vlogs {
+        width:100vw;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+        padding: 2%;
+        h2 {
+            color: map-get($colorpalette,"colorTerciario");
+            font-size: 1.5rem;
+            text-align: center;
+        }
+    }
+
+    .video {
+        padding: 2%;
+        margin: 2%;
+        border:solid;
+        border-color: #FFD369;
+        border-radius: 15px;
+        background-color: map-get($colorpalette,"colorPrincipal");
+        opacity: 90%;
+        width: 95%;
+        height: auto;
+        display:flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items:center;
+        gap: 5%;
+        text-align:center;
+        iframe {
+            border: solid 5px;
+            border-style: double dashed;
+            border-color: map-get($colorpalette,"colorTerciario");
+            border-radius: 15px;
+            max-width:100%;
+        }
+        h4{
+            color: map-get($colorpalette,"colorTerciario");
+            font-size: 1.5rem;
+        }
+    }
+
+    .videoRight {
+        padding: 2%;
+        margin: 2%;
+        border:solid;
+        border-color: #FFD369;
+        border-radius: 15px;
+        background-color: map-get($colorpalette,"colorPrincipal");
+        opacity: 90%;
+        width: 95%;
+        height: auto;
+        display:flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items:space-between;
+        gap: 5%;
+        iframe {
+            border: solid 5px;
+            border-style: double dashed;
+            border-color: map-get($colorpalette,"colorTerciario");
+            border-radius: 15px;
+            max-width:100%;
+        }
+        h4{
+            color: map-get($colorpalette,"colorTerciario");
+            font-size: 1.5rem;
+        }
+    }
+}
