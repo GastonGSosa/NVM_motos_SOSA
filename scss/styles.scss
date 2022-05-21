@@ -15,8 +15,13 @@ $colorpalette: ("colorPrincipal": #222831, "colorSecundario": #393E46, "colorTer
     color: map-get($colorpalette, "colorTexto");
     font-family: 'Oxygen', sans-serif;
 }
+a {
+    text-decoration: none;
+}
 
+/* ************************************************************ */
 /* ***********************DESKTOP****************************** */
+/* ************************************************************ */
 
 @media (min-width: 1024px ){
 
@@ -92,19 +97,58 @@ $colorpalette: ("colorPrincipal": #222831, "colorSecundario": #393E46, "colorTer
                 width: 3vh;
             }
         }
+        a:hover {
+            transform: scale(110%);
+            transition-duration: 0.2s;
+        }
     }
 
 
 
     .nav {
+        @include sizes (map-get($colorpalette,"colorPrincipal"),100vw,5vh);
         display: flex;
         flex-flow: row nowrap;
-        @include sizes (map-get($colorpalette,"colorSecundario"),100vw,5vh);
-        gap: 10px;
+        justify-content: flex-end;
+        align-items: center;
+        overflow: hidden;
+        gap: 5px;
         border-bottom:solid;
         border-color: map-get($colorpalette,"colorTerciario");
         position: relative;
+        padding-right: 3%;
+    }
 
+    .item{
+        text-align: center;
+        background-color: map-get($colorpalette,"colorPrincipal");
+        padding: 5px;
+        a {
+            text-decoration: none;
+            color: map-get($colorpalette,"colorTexto");
+        }
+
+    }
+
+    .item:hover {
+        transform: scale(110%);
+        border-bottom: solid;
+        border-top: solid;
+        border-width: 4px;
+        border-color: map-get($colorpalette,"colorTerciario");
+        border-radius: 5px;
+        background-color: map-get($colorpalette,"colorSecundario");
+        transition-duration: 0.2s;
+    }
+
+    .item:active {
+        text-align: center;
+        background-color: map-get($colorpalette,"colorPrincipal");
+        padding: 5px;
+        a {
+            text-decoration: none;
+            color: map-get($colorpalette,"colorTexto");
+        }
     }
 
     .footer {
@@ -215,7 +259,7 @@ $colorpalette: ("colorPrincipal": #222831, "colorSecundario": #393E46, "colorTer
     .colorCard {
         background-color: map-get($colorpalette,"colorPrincipal");
         color: map-get($colorpalette,"colorTexto");
-        
+
     }
 
 
@@ -388,7 +432,7 @@ $colorpalette: ("colorPrincipal": #222831, "colorSecundario": #393E46, "colorTer
     }
 
     .video {
-        padding: 2% 10%;
+        padding: 2%;
         margin: 2%;
         border:solid;
         border-color: #FFD369;
@@ -421,7 +465,7 @@ $colorpalette: ("colorPrincipal": #222831, "colorSecundario": #393E46, "colorTer
     }
 
     .videoRight {
-        padding: 2% 10%;
+        padding: 2%;
         margin: 2%;
         border:solid;
         border-color: #FFD369;
@@ -462,64 +506,53 @@ $colorpalette: ("colorPrincipal": #222831, "colorSecundario": #393E46, "colorTer
 
 @media (max-width: 1023px) and (min-width: 481px){
 
-/* TAG SELECTORS */
+    /* TAG SELECTORS */
 
 
-html, body{
-    /* background-image: url("/images/fondo.png"); */
-    display:flex;
-    flex-flow:column nowrap;
-    margin: 0;
-    padding: 0;
-    max-width:100vw;
-    overflow-y:auto;
-    overflow-x:hidden;
-    scroll-behavior:smooth;
-    main {
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-        width: 100vw;
-        height:auto;
-        min-height:80vh;
-        background-image: url("../images/seamless_road.jpg");
-        background-size: contain;
-        h2 {
-            color: map-get($colorpalette,"colorTerciario");
-            font-size: 2.5vw;
+    html, body{
+        /* background-image: url("/images/fondo.png"); */
+        display:flex;
+        flex-flow:column nowrap;
+        margin: 0;
+        padding: 0;
+        max-width:100vw;
+        overflow-y:auto;
+        overflow-x:hidden;
+        scroll-behavior:smooth;
+        main {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height:auto;
+            min-height:80vh;
+            background-image: url("../images/seamless_road.jpg");
+            background-size: contain;
+            h2 {
+                color: map-get($colorpalette,"colorTerciario");
+                font-size: 2.5vw;
+            }
+            
+            
         }
-        
-        
     }
-}
 
-/* --------------ESTRUCTURA DE LA PÁGINA ------------------------------- */
+    /* --------------ESTRUCTURA DE LA PÁGINA ------------------------------- */
 
-.header {
-    @include sizes (map-get($colorpalette,"colorSecundario"),100vw,10vh);
-    padding-left: 10px;
-    display:flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2%;
-    position: relative;
-    top:0;
-}
-.headLeft {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 2vw;
-    justify-content: center;
-    align-items: center;
-    h1 {
-        font-size: 4vw;
+    .header {
+        @include sizes (map-get($colorpalette,"colorSecundario"),100vw,10vh);
+        padding-left: 10px;
+        display:flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2%;
+        position: relative;
+        top:0;
     }
-}
-
-.headRight {
-    display: flex;
+    .headLeft {
+        display: flex;
         flex-flow: row nowrap;
         gap: 2vw;
         justify-content: center;
@@ -527,328 +560,377 @@ html, body{
         h1 {
             font-size: 4vw;
         }
-    a {
-        img {
-            width: 3vh;
+    }
+
+    .headRight {
+        display: flex;
+            flex-flow: row nowrap;
+            gap: 2vw;
+            justify-content: center;
+            align-items: center;
+            h1 {
+                font-size: 4vw;
+            }
+        a {
+            img {
+                width: 3vh;
+            }
         }
     }
-}
 
 
 
-.nav {
-    display: flex;
-    flex-flow: row nowrap;
-    @include sizes (map-get($colorpalette,"colorSecundario"),100vw,5vh);
-    gap: 10px;
-    border-bottom:solid;
-    border-color: map-get($colorpalette,"colorTerciario");
-    position: relative;
-
-}
-
-.footer {
-    @include sizes(map-get($colorpalette,"colorSecundario"),100vw,5vh);
-    border-top: solid;
-    border-color: map-get($colorpalette,"colorTerciario");
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
-    align-items: center;
-    position: relative;
-    bottom:0;
-
-    .footerMenu {
+    .nav {
+        @include sizes (map-get($colorpalette,"colorPrincipal"),100vw,5vh);
         display: flex;
         flex-flow: row nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        overflow: hidden;
         gap: 5px;
-        font-size: 0.75rem;
-        max-width:100%;
+        border-bottom:solid;
+        border-color: map-get($colorpalette,"colorTerciario");
+        position: relative;
+        padding-right: 3%;
     }
 
-}
-
-/* ------------------------------INDEX------------------------------ */
-
-
-.ppal {
-    @include sizes (map-get($colorpalette, "colorPrincipal"),100vw,30%);
-    background-image: url("../images/seamless_road.jpg");
-    background-repeat: repeat-y;
-    background-size: cover;
-    display: flex;
-    flex-flow:column nowrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3% 10%;
-    gap: 5%;    
-    h2 {
-        display:block;
-        color: map-get($colorpalette,"colorTerciario");
-        font-size: 2.5vw;
-        font-style: bold;
-    }
-    
-}
-
-.scdario {
-    width: 100vw;
-    height: auto;
-    padding: 3% 10%;
-    display: flex;
-    flex-flow:column wrap;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-
-    .p {
-        font-size: 1em;
-    }
-}
-
-.motoIntro {
-    border: solid;
-    border-radius: 15px;
-    border-color: #FFD369;
-    max-width: 80vw;
-}
-
-/* -------------------------SECCION CLASES------------------------ */
-
-.aranceles {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 2vw;
-    padding-top: 2vh;
-}
-
-.categorias {
-    width: 100vw;
-    height: auto;
-
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    h2 {
-        color: map-get($colorpalette,"colorTerciario");
-        font-size: 2.5vw;
-        padding: 2%;
-    }
-    .catDescri {
-        font-size: 1.3rem;
+    .item{
         text-align: center;
-        padding: 2% 10%;
+        background-color: map-get($colorpalette,"colorSecundario");
+        width: 15vw;
+        padding: 5px;
+        gap: 10px;
+        border-top: solid;
+        border-bottom: solid;
+        border-color: map-get($colorpalette,"colorTerciario");
+        border-radius: 5px;
+        a {
+            text-decoration: none;
+            color: map-get($colorpalette,"colorTexto");
+        }
+
     }
 
-}
-.colorCard {
-    background-color: map-get($colorpalette,"colorPrincipal");
-    color: map-get($colorpalette,"colorTexto");
-}
 
-.colorCard:hover {
-    transform: scale(120%);
-    transition-duration: 0.2s;
-}
-
-.modalidad {
-    @include sizes (map-get($colorpalette,colorPrincipal),100%,auto);
-    background-image: url("../images/seamless_road.jpg");
-    background-repeat: repeat-y;
-    background-size: contain;
-    display: flex;
-    flex-flow:column nowrap;
-    justify-content: space-evenly;
-    align-items: center;
-    h3{
-        display: inline-block;
-        font-size: 2.5em;
-    }
-}
-
-.lugar {
-    width: 100vw;
-    display: flex;
-    flex-flow:column nowrap;
-    justify-content: space-evenly;
-    align-items: center;
-    h3{
-        display: inline-block;
-        font-size: 2.5em;
-    }
-}
-
-.mod1{
-    padding: 2% 7%;
-    border:solid;
-    border-color: #FFD369;
-    border-radius: 15px;
-    background-color: map-get($colorpalette,"colorPrincipal");
-    opacity: 90%;
-    width:80%;
-    height: auto;
-    display:flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items:center;
-    gap: 2%;
-    margin: 1%;
-    img {
-        border-radius:15px;
-    }
-
-}
-
-.mod2{
-    padding: 2% 7%;
-    border:solid;
-    border-color: #FFD369;
-    border-radius: 15px;
-    background-color: map-get($colorpalette,"colorPrincipal");
-    opacity: 90%;
-    width:80%;
-    height: auto;
-    display:flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items:center;
-    gap: 2%;
-    margin: 1%;
-    img {
-        border-radius:15px;
-    }
-    text-align: right;
-}
-
-.map {
-    background-color: map-get($colorpalette,"colorPrincipal");
-    border: solid;
-    border-color: map-get($colorpalette,"colorTerciario");
-    padding: 1%;
-    border-radius: 15px;
-    opacity:90%;
-    width:80%;
-    overflow:hidden;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items:center;
-    margin: 1%;
-    iframe {
-        border-radius:15px;
-        width:90%;
-    }
-    p{
-        width:90%;
-        padding:1%;
-    }
-    
-}
-
-/* -------------------------SECCION PROFESOR---------------------- */
-
-.bio {
-    width:100%;
-    height: auto;
-    display:flex;
-    flex-direction: column;
-    justify-content:center;
-    border: solid;
-    border-color: map-get($colorpalette,"colorTerciario");
-    .box1{
-        @include sizes(map-get($colorpalette,"colorPrincipal"),auto,auto);
-        padding: 2% 5%;
-        text-align:center;
-    }
-    .box2{
+    .item:active {
+        text-align: center;
         background-color: map-get($colorpalette,"colorPrincipal");
-        img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 50%;
-            border: solid;
-            border-radius: 5px;
-            border-color: map-get($colorpalette, "colorTerciario");
-            filter: grayscale(100%);
-            opacity: 50%;
+        padding: 5px;
+        a {
+            text-decoration: none;
+            color: map-get($colorpalette,"colorTexto");
         }
     }
-}
 
-/* ------------------------SECCION BLOG-------------------------------- */
+    .footer {
+        @include sizes(map-get($colorpalette,"colorSecundario"),100vw,5vh);
+        border-top: solid;
+        border-color: map-get($colorpalette,"colorTerciario");
+        display: flex;
+        flex-flow: column-reverse nowrap;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        bottom:0;
 
-.vlogs {
-    width:100%;
-    height: auto;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10%;
-    h2 {
-        color: map-get($colorpalette,"colorTerciario");
-        font-size: 2.5vw;
+        .footerRight {
+            display: flex;
+            flex-flow: row nowrap;
+            gap:5px;
+            font-size: 0.75rem;
+            max-width:100%;
+            span{
+                a{
+                    text-decoration:none;
+                }
+            }
+        }
+
+        .footerLeft {
+            font-size: 0.75rem;
+        }
+
+    }
+
+    /* ------------------------------INDEX------------------------------ */
+
+
+    .ppal {
+        width:100vw;
+        display: flex;
+        flex-flow:column nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3% 10%;
+        gap: 5%;    
+        h2 {
+            display:block;
+            color: map-get($colorpalette,"colorTerciario");
+            font-size: 2.5vw;
+            font-style: bold;
+        }
+        
+    }
+
+    .scdario {
+        width: 100vw;
+        padding: 3% 10%;
+        display: flex;
+        flex-flow:column wrap;
+        justify-content: flex-start;
+        align-items: center;
         text-align: center;
-    }
-}
 
-.video {
-    padding: 2% 5%;
-    margin: 2%;
-    border:solid;
-    border-color: #FFD369;
-    border-radius: 15px;
-    background-color: map-get($colorpalette,"colorPrincipal");
-    opacity: 90%;
-    width: 85%;
-    height: auto;
-    display:flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items:center;
-    gap: 5%;
-    text-align:center;
-    iframe {
-        border: solid 5px;
-        border-style: double dashed;
-        border-color: map-get($colorpalette,"colorTerciario");
-        border-radius: 15px;
+        .p {
+            font-size: 1em;
+        }
     }
-    h4{
-        color: map-get($colorpalette,"colorTerciario");
-        font-size: 2rem;
-    }
-}
 
-.videoRight {
-    padding: 2% 5%;
-    margin: 2%;
-    border:solid;
-    border-color: #FFD369;
-    border-radius: 15px;
-    background-color: map-get($colorpalette,"colorPrincipal");
-    opacity: 90%;
-    width: 85%;
-    height: auto;
-    display:flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items:center;
-    gap: 5%;
-    text-align:center;
-    iframe {
-        border: solid 5px;
-        border-style: double dashed;
-        border-color: map-get($colorpalette,"colorTerciario");
+    .motoIntro {
+        border: solid;
         border-radius: 15px;
+        border-color: #FFD369;
+        max-width: 80vw;
     }
-    h4{
-        color: map-get($colorpalette,"colorTerciario");
-        font-size: 2rem;
+
+    /* -------------------------SECCION CLASES------------------------ */
+
+    .aranceles {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2vw;
+        padding-top: 2vh;
     }
-}
+
+    .categorias {
+        width: 100vw;
+        height: auto;
+
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        h2 {
+            color: map-get($colorpalette,"colorTerciario");
+            font-size: 2.5vw;
+            padding: 2%;
+        }
+        .catDescri {
+            font-size: 1.3rem;
+            text-align: center;
+            padding: 2% 10%;
+        }
+
+    }
+    .colorCard {
+        background-color: map-get($colorpalette,"colorPrincipal");
+        color: map-get($colorpalette,"colorTexto");
+    }
+
+    .colorCard:hover {
+        transform: scale(120%);
+        transition-duration: 0.2s;
+    }
+
+    .modalidad {
+        @include sizes (map-get($colorpalette,colorPrincipal),100%,auto);
+        background-image: url("../images/seamless_road.jpg");
+        background-repeat: repeat-y;
+        background-size: contain;
+        display: flex;
+        flex-flow:column nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        h3{
+            display: inline-block;
+            font-size: 2.5em;
+        }
+    }
+
+    .mod1{
+        padding: 2% 7%;
+        border:solid;
+        border-color: #FFD369;
+        border-radius: 15px;
+        background-color: map-get($colorpalette,"colorPrincipal");
+        opacity: 90%;
+        width:80%;
+        height: auto;
+        display:flex;
+        flex-flow: column-reverse nowrap;
+        justify-content: space-between;
+        align-items:center;
+        text-align: center;
+        gap: 2%;
+        margin: 1%;
+        img {
+            border-radius:15px;
+            max-width: 100%;
+        }
+
+    }
+
+    .mod2{
+        padding: 2% 7%;
+        border:solid;
+        border-color: #FFD369;
+        border-radius: 15px;
+        background-color: map-get($colorpalette,"colorPrincipal");
+        opacity: 90%;
+        width:80%;
+        height: auto;
+        display:flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items:center;
+        text-align: center;
+        gap: 2%;
+        margin: 1%;
+        img {
+            border-radius:15px;
+        }
+    }
+
+    .lugar {
+        width: 100vw;
+        display: flex;
+        flex-flow:column nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        h3{
+            display: inline-block;
+            font-size: 2.5em;
+        }
+    }
+
+    .map {
+        background-color: map-get($colorpalette,"colorPrincipal");
+        border: solid;
+        border-color: map-get($colorpalette,"colorTerciario");
+        padding: 1%;
+        border-radius: 15px;
+        opacity:90%;
+        width:80%;
+        overflow:hidden;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items:center;
+        margin: 1%;
+        iframe {
+            border-radius:15px;
+            width:90%;
+        }
+        p{
+            width:90%;
+            padding:1%;
+        }
+        
+    }
+
+    /* -------------------------SECCION PROFESOR---------------------- */
+
+    .bio {
+        width:100%;
+        height: auto;
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+        border: solid;
+        border-color: map-get($colorpalette,"colorTerciario");
+        .box1{
+            @include sizes(map-get($colorpalette,"colorPrincipal"),auto,auto);
+            padding: 2% 5%;
+            text-align:center;
+        }
+        .box2{
+            background-color: map-get($colorpalette,"colorPrincipal");
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+                border: solid;
+                border-radius: 5px;
+                border-color: map-get($colorpalette, "colorTerciario");
+                filter: grayscale(100%);
+                opacity: 50%;
+            }
+        }
+    }
+
+    /* ------------------------SECCION BLOG-------------------------------- */
+
+    .vlogs {
+        width:100%;
+        height: auto;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+        h2 {
+            color: map-get($colorpalette,"colorTerciario");
+            font-size: 2.5vw;
+            text-align: center;
+        }
+    }
+
+    .video {
+        padding: 2% 5%;
+        margin: 2%;
+        border:solid;
+        border-color: #FFD369;
+        border-radius: 15px;
+        background-color: map-get($colorpalette,"colorPrincipal");
+        opacity: 90%;
+        width: 85%;
+        height: auto;
+        display:flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items:center;
+        gap: 5%;
+        text-align:center;
+        iframe {
+            border: solid 5px;
+            border-style: double dashed;
+            border-color: map-get($colorpalette,"colorTerciario");
+            border-radius: 15px;
+        }
+        h4{
+            color: map-get($colorpalette,"colorTerciario");
+            font-size: 2rem;
+        }
+    }
+
+    .videoRight {
+        padding: 2% 5%;
+        margin: 2%;
+        border:solid;
+        border-color: #FFD369;
+        border-radius: 15px;
+        background-color: map-get($colorpalette,"colorPrincipal");
+        opacity: 90%;
+        width: 85%;
+        height: auto;
+        display:flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items:center;
+        gap: 5%;
+        text-align:center;
+        iframe {
+            border: solid 5px;
+            border-style: double dashed;
+            border-color: map-get($colorpalette,"colorTerciario");
+            border-radius: 15px;
+        }
+        h4{
+            color: map-get($colorpalette,"colorTerciario");
+            font-size: 2rem;
+        }
+    }
 
 }
 
@@ -932,14 +1014,45 @@ html, body{
 
 
     .nav {
+        @include sizes (map-get($colorpalette,"colorPrincipal"),100vw,5vh);
         display: flex;
         flex-flow: row nowrap;
-        @include sizes (map-get($colorpalette,"colorSecundario"),100vw,5vh);
-        gap: 10px;
+        justify-content: space-evenly;
+        align-items: center;
+        overflow: hidden;
+        gap: 5px;
         border-bottom:solid;
         border-color: map-get($colorpalette,"colorTerciario");
         position: relative;
+        padding-right: 3%;
+    }
 
+    .item{
+        text-align: center;
+        background-color: map-get($colorpalette,"colorSecundario");
+        width: 20vw;
+        padding: 5px;
+        gap: 10px;
+        border-top: solid;
+        border-bottom: solid;
+        border-color: map-get($colorpalette,"colorTerciario");
+        border-radius: 5px;
+        a {
+            text-decoration: none;
+            color: map-get($colorpalette,"colorTexto");
+        }
+
+    }
+
+
+    .item:active {
+        text-align: center;
+        background-color: map-get($colorpalette,"colorPrincipal");
+        padding: 5px;
+        a {
+            text-decoration: none;
+            color: map-get($colorpalette,"colorTexto");
+        }
     }
 
     .footer {
@@ -947,18 +1060,27 @@ html, body{
         border-top: solid;
         border-color: map-get($colorpalette,"colorTerciario");
         display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-evenly;
+        flex-flow: column-reverse nowrap;
+        justify-content: space-around;
         align-items: center;
         position: relative;
         bottom:0;
 
-        .footerMenu {
+        .footerRight {
             display: flex;
             flex-flow: row nowrap;
-            gap: 5px;
+            gap:5px;
             font-size: 0.75rem;
             max-width:100%;
+            span{
+                a{
+                    text-decoration:none;
+                }
+            }
+        }
+
+        .footerLeft {
+            font-size: 0.75rem;
         }
 
     }
